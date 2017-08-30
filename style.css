@@ -18,7 +18,8 @@ body {
 }
 
 .container {
-    width: 480px;
+    max-width: 480px;
+    width: 100%;
     min-height: 100%;
     display: flex;
     flex-direction: column;
@@ -26,17 +27,70 @@ body {
 }
 
 header {
-    width: auto;
+    width: 100%;
     height: auto;
     background-color: #245875;
     padding: 10px;
     font-size: 20px;
     display: flex;
     align-items: center;
+    align-content: stretch;
+    justify-content: space-between;
+    flex-wrap: nowrap;
 }
 
 header > div {
-    margin-right: 20px;
+    margin-right: 16px;
+}
+
+header > div:last-child {
+    margin-right: 0;
+}
+
+#logo {
+    padding-left: 4px;
+}
+
+.search {
+    width: 50%;
+    position: relative;
+}
+
+#search-field {
+    border: none;
+    border: 1px solid black;
+    border-radius: 10px;
+    background: #123D56 !important;
+    outline: none;
+    font-family: Tahoma;
+    padding: 6px 37px 6px 8px;
+    font-size: 16px;
+    width: 100%;
+}
+
+#search-field:focus {
+    color: #eee;
+}
+
+#submit {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 32px;
+    height: 100%;
+    cursor: pointer;
+    border: none;
+    background: url('images/search.png') 50% 50% no-repeat;
+    opacity: 0.5;
+}
+
+#submit:hover {
+    opacity: 0.9;
+}
+
+#login {
+    margin: 0 auto;
+    font-size: 14px;
 }
 
 p, a, li {
@@ -50,14 +104,6 @@ a {
 
 ul {
     list-style: none;
-}
-
-li {
-    margin-right: 20px;
-}
-
-li:last-child {
-    margin: 0;
 }
 
 footer {
@@ -83,42 +129,35 @@ footer > div:last-child {
     margin: 0;
 }
 
-#reanima {
+#reanima-menu {
     width: 100%;
     padding: 10px 0;
     border-top: 2px dashed #245875;
     border-bottom: 2px dashed #245875;
 }
 
+#reanima-menu > ul > li {
+    margin-right: 20px;
+}
+
+#reanima-menu > ul > li:last-child {
+    margin: 0;
+}
+
+#reanima-menu > ul > li > a {
+    padding: 4px;
+}
+
+#reanima-menu > ul > li > a:hover {
+    background: #245875;
+    color: #fff;
+}
+
 .content-main {
     flex: 1 0 auto;
     width: auto;
-    min-height: 300px;
     height: auto;
     background: white;
-}
-
-#logo {
-    padding-left: 10px;
-}
-
-#search {
-    border: none;
-    border: 1px solid black;
-    border-radius: 10px;
-    background: #123D56 !important;
-    outline: none;
-    font-family: Tahoma;
-    padding: 6px;
-}
-
-#login {
-    margin: 0 auto;
-    font-size: 12px;
-}
-
-#login a {
-    color: white;
 }
 
 .banner-main {
@@ -132,13 +171,14 @@ footer > div:last-child {
 
 .banner-projects {
     width: 100%;
-    min-height: 200px;
     height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 10px;
     padding-bottom: 0;
+    
+/*    display: none;*/
 }
 
 .banner-projects > div {
@@ -173,10 +213,88 @@ footer > div:last-child {
     background-position: calc(50% - 5px);
 }
 
+.social-sharing {
+    width: 100%;
+    height: auto;
+}
+
+.socials {
+    margin-top: 10px;
+}
+
+.social-btn {
+    width: 30px;
+    height: 30px;
+    background: #aaa;
+}
+
+.social-btn > a {
+    width: 100%;
+    height: 100%;
+}
+
+.social-btn > a:hover {
+    background: #245875;
+    opacity: 0.2;
+}
+
+#vk {
+    background: url('images/social/vk.png') 50% 50% no-repeat;
+}
+
+#fb {
+    background: url('images/social/facebook.png') 50% 50% no-repeat;
+}
+
+#wa {
+    background: url('images/social/whatsapp.png') 50% 50% no-repeat;
+}
+
+#tg {
+    background: url('images/social/telegram.png') 50% 50% no-repeat;
+}
+
+#tw {
+    background: url('images/social/twitter.png') 50% 50% no-repeat;
+}
+
+#login-popup {
+    display: none;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+#popup {
+    background-color: #055e34;
+    color: #eee;
+    position: relative;
+    margin: 0 auto;
+    top: 30%; 
+    width: 300px;
+    height: 400px;
+    padding: 40px;
+    border-radius: 20px;
+    border: 3px solid #222;
+}
+
+#popup-close {
+    cursor: pointer;
+    font-weight: bold;
+    opacity: 0.5;
+    font-size: 24px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
 /*@media screen and (min-width: 481px) {
     body {
-        font-size: 16px;
-        width: 100%;
+        
     }
     
 }*/
