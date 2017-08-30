@@ -5,15 +5,18 @@
     <title>Reanima.Store</title>
     <link rel="stylesheet" href="style.css">
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 </head>
 
 <body>
     <div class="container">
         <header>
             <div id="logo"><p>Reanima.Store</p></div>
-            <div><input type="text" placeholder="Search" id="search" autofocus /></div>
-            <div id="login"><a href="#">Login</a></div>
+            <form action="" method="post" class="search">
+                <input type="search" name="" placeholder="Search" id="search-field" autofocus />
+                <input type="submit" name="" value="" id="submit" />
+            </form>
+            <div id="login"><p style="cursor: pointer;" onclick="openbox()">Login</p></div>
         </header>
 
         <div class="content-main">
@@ -27,18 +30,41 @@
         </div>
 
         <footer>
-            <div><p>Reanima.Store</p></div>
-            <div id="reanima">
+            <div><p>(c) Reanima.Store, 2017</p></div>
+            <div id="reanima-menu">
                 <ul>
                     <li><a href="#">Projects</a></li>
                     <li><a href="#">FAQ</a></li>
                     <li><a href="#">About us</a></li>
                 </ul>
             </div>
-            <div><p>Social sharing</p></div>
+            <div class="social-sharing">
+                <p>Social sharing</p>
+                <br>
+                <ul class="socials">
+                    <li class="social-btn" id="vk"><a href="#"></a></li>
+                    <li class="social-btn" id="fb"><a href="#"></a></li>
+                    <li class="social-btn" id="wa"><a href="#"></a></li>
+                    <li class="social-btn" id="tg"><a href="#"></a></li>
+                    <li class="social-btn" id="tw"><a href="#"></a></li>
+                </ul>
+            </div>
         </footer>
     </div>
 	
-</body>
+	<div id="login-popup">
+	  <div id="popup">
+		<p id="popup-close" onclick="document.getElementById('login-popup').style.display='none';">X</p>
+		<br/>
+		<p>Тут скоро будет форма логина, и это круто</p>
+	  </div>
+	</div>
+	
+	<script type="text/javascript">
+        function openbox() {
+            document.getElementById('login-popup').style.display='block';
+        }
+    </script>
 
+</body>
 </html>
