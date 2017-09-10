@@ -1,0 +1,451 @@
+// Main color and semi-transparent
+$main-col: rgb(36, 88, 117);
+$main-col-tr: rgba(36, 88, 117, 0.5);
+// Image directories
+$img-dir: '../images/';
+$img-soc: '../images/social/';
+// Default image position and repeat
+$img-def: 50% 50% no-repeat;
+
+@mixin wh-def {
+    // Default width/height values
+    width: 100%;
+    height: auto;
+}
+
+@mixin fl-def {
+    // Default Flexbox parameters
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@keyframes swing {
+    // Swing animation for .rnm-button
+  15% {
+    transform: translateX(6px);
+  }
+  30% {
+    transform: translateX(-6px);
+  }
+  40% {
+    transform: translateX(3px);
+  }
+  50% {
+    transform: translateX(-3px);
+  }
+  65% {
+    transform: translateX(2px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+* {
+    // Reset margin and padding
+    margin: 0;
+    padding: 0;
+    // Border box to all
+    box-sizing: border-box !important;
+    // No outline for all elements
+    outline: none !important;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    font-size: 1.25em;
+	background: url($img-dir + 'tile.jpg') fixed center;
+}
+
+p, a, li {
+    display: inline-block;
+}
+
+a {
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
+    
+    li > & {
+        color: $main-col;
+    }
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    // Main container of all page elements
+    max-width: 16em;
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+header {
+    @include wh-def;
+    background-color: $main-col;
+    padding: 0.5em 0 0.5em 0.5em;
+    @include fl-def;
+    flex-wrap: wrap;
+    
+    #logo {
+        margin: 0 0.8em 0 0.3em;
+        width: 163px;
+        height: 35px;
+    }
+    
+    #login-open {
+        width: auto;
+        margin: 0 1.14285em;
+        padding: 0.4286em;
+        font-size: 0.7em;
+        border: 2px solid $main-col;
+        color: #fff;
+        cursor: pointer;
+        &:hover {
+            background: #4c0f77;
+            border: 2px solid #aaa;
+        }
+    }
+}
+
+.search {
+    width: auto;
+    position: relative;
+    flex: 1 0 auto;
+    margin-top: 0.3em;
+    margin-right: 0.5em;
+    
+    #search-field {
+        border: none;
+        border: 1px solid black;
+        border-radius: 1em;
+        background: #123D56 !important;
+        font-family: Tahoma;
+        padding: 6px 30px 6px 8px;
+        font-size: 0.8em;
+        width: 100% !important;
+        &:focus {
+            color: #eee;
+        }
+    }
+    
+    #search-submit {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 32px;
+        height: 100%;
+        cursor: pointer;
+        border: none;
+        background: url($img-dir + 'search.png') $img-def;
+        opacity: 0.5;
+        &:hover {
+            opacity: 1.0;
+        }
+    }
+}
+
+footer {
+    @include wh-def;
+    background-color: #fff;
+    border-top: 2px solid $main-col;
+    padding: 0 1em;
+    color: $main-col;
+    text-align: center;
+    flex: 0 0 auto; // Always places footer in the end of the page
+    @include fl-def;
+    flex-direction: column;
+    
+    #logo-bottom {
+        width: 163px;
+        height: 35px;
+        background: url($img-dir + 'logo-2.png') $img-def;
+        margin: 1em 0;
+    }
+
+    #reanima-menu {
+        width: 100%;
+        padding: 10px 0;
+        border-top: 2px dashed $main-col;
+        border-bottom: 2px dashed $main-col;
+
+        & > ul > li {
+            margin-right: 1em;
+
+            &:last-child {
+                margin: 0;
+            }
+
+            & > a {
+                padding: 4px;
+
+                &:hover {
+                    background: $main-col;
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
+
+.social-sharing {
+    @include wh-def;
+    padding: 1em 0;
+}
+
+.socials {
+    .social-btn {
+        width: 30px;
+        height: 30px;
+
+        & > a:hover {
+            background: $main-col;
+            opacity: 0.2;
+        }
+    }
+    
+    #vk {
+        background: url($img-soc + 'vk.png') $img-def;
+    }
+
+    #fb {
+        background: url($img-soc + 'facebook.png') $img-def;
+    }
+
+    #wa {
+        background: url($img-soc + 'whatsapp.png') $img-def;
+    }
+
+    #tg {
+        background: url($img-soc + 'telegram.png') $img-def;
+    }
+
+    #tw {
+        background: url($img-soc + 'twitter.png') $img-def;
+    }
+}
+
+.content-main {
+    flex: 1 0 auto;
+    @include wh-def;
+    background: #fff;
+}
+
+.banner-main {
+    width: 100%;
+    min-height: 300px;
+    background: url($img-dir + 'image.png') $img-def;
+    background-size: 150%;
+    background-color: #2C2720;
+    position: relative;
+    
+    #reanimate {
+        width: 200px;
+        height: 69px;
+        position: absolute;
+        right: 1em;
+        bottom: 1em;
+        background: url($img-dir + 'big-button.png') $img-def;
+        opacity: 0.8;
+        transition: all 0.3s ease;
+        
+        &:hover {
+            opacity: 1.0;
+            transform: scale(1.1);
+        }
+    }
+}
+
+.banner-projects {
+    padding: 0.2em 0.1em;
+    text-align: center;
+    justify-content: space-around;
+    
+    #banner-1 {
+        background-image: url($img-dir + '1-banner.png');
+        background-position: calc(50% + 5px) 50%;
+    }
+
+    #banner-2 {
+        background-image: url($img-dir + '2-banner.png');
+    }
+
+    #banner-3 {
+        background-image: url($img-dir + '3-banner.png');
+    }
+
+    #banner-4 {
+        background-image: url($img-dir + '4-banner.png');
+        background-position: calc(50% - 5px) 50%;
+    }
+}
+
+.banner-mini {
+    display: inline-block;
+    min-width: 270px;
+    max-width: 290px;
+    min-height: 300px;
+    background: {
+        color: #fff;
+        repeat: no-repeat;
+        position: 50% 50%;
+        size: 115%;
+    }
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 0.2em;
+    position: relative;
+    
+    .rnm-button {
+        display: inline-block;
+        width: 44px;
+        height: 44px;
+        background: url($img-dir + 'rnm-button.png') $img-def;
+        position: absolute;
+        bottom: 0.9em;
+        right: 0.4em;
+        
+        &:hover {
+            animation: swing 0.6s ease;
+            animation-iteration-count: 1;
+        }
+    }
+}
+
+#login-popup {
+    background-color: #fff;
+    color: $main-col;
+    font-size: 0.875em;
+    text-align: center;
+    position: relative;
+    top: 10%;
+    margin: 0 auto;
+    max-width: 21.429em;
+    @include wh-def;
+    padding: 1.4286em;
+    border: 1px solid #222;
+    border-radius: 1.25em;
+    
+    #login-form {
+        & > input[type=text],
+        & > input[type=password] {
+            width: 100%;
+            border: none;
+            border-bottom: 2px solid $main-col-tr;
+            color: $main-col;
+            text-align: center;
+            margin: 0.5em 0 0.25em;
+            padding: 0.25em;
+            font-size: 1.15em;
+            font-weight: 100;
+        }
+        
+        & > input[type=submit] {
+            border: none;
+            background-color: $main-col;
+            color: #fff;
+            text-align: center;
+            border-radius: 1.25em;
+            margin: 0.5em 0;
+            padding: 0.5em 3em;
+            font-size: 1.15em;
+            
+            &:hover {
+                cursor: pointer;
+            }
+        }
+        
+        & > p > #register-link {
+            display: inline;
+            font-weight: bold;
+            text-decoration: underline;
+            color: $main-col;
+        }
+    }
+}
+
+@media screen and (min-width: 30em) {
+    .container {
+        max-width: 100%;
+    }
+    
+    header {
+        flex-wrap: nowrap;
+        
+        .search {
+            margin: 0;
+            flex: auto;
+            order: 2;
+        }
+        
+        #login-open {
+            order: 3;
+        }
+    }
+    
+    .banner-main {
+        #reanimate {
+            right: 4em;
+            bottom: 1em;
+        }
+    }
+
+    #login-popup {
+        max-width: 24em;
+        line-height: 1.75em;
+        
+        #login-form {
+            font-size: 1.1em;
+            
+            input[type=text], input[type=password] {
+                margin: 1em 0 0.5em;
+            }
+            
+            input[type=submit] {
+                margin: 1em 0;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 50em) {
+    // This section makes bottom menu horizontal
+    
+    footer {
+        flex-direction: row;
+        padding: 0 2em;
+        
+        #reanima-menu {
+            border: none;
+            width: auto;
+            margin: 0 1em;
+            margin-top: 3.5em;
+            padding: 1em 0;
+            flex: 1 0 auto;
+            border-top: 2px solid $main-col-tr;
+
+            & > ul > li {
+                margin-right: 2em;
+
+                &:last-child {
+                    margin: 0;
+                }
+            }
+        }
+    }
+    
+    .social-sharing {
+        width: auto;
+    }
+}
